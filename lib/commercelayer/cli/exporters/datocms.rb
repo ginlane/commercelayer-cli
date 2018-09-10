@@ -102,7 +102,10 @@ module Commercelayer
                 required: {},
                 unique: {}
               },
-              appeareance: { type: "plain" }
+              appeareance: {
+                editor: "single_line",
+                parameters: {}
+              }
             },
             variants: {
               label: "Variants",
@@ -110,61 +113,67 @@ module Commercelayer
               hint: "The product's variants",
               position: 2,
               validators: { items_item_type: { item_types: [@variant_model[:id]] } },
-              appeareance: { type: "select" }
+              appeareance: {
+                editor: "links_select",
+                parameters: {}
+              }
             }
           }
         end
 
         def variant_model_fields
           {
-            product: {
-              label: "Product",
-              field_type: "link",
-              hint: "The reference product",
-              position: 1,
-              validators: {
-                required: {},
-                item_item_type: { item_types: [@product_model[:id]] }
-              },
-              appeareance: { type: "select" }
-            },
             code: {
               label: "Code",
               field_type: "string",
               hint: "The variant's code",
-              position: 2,
+              position: 1,
               validators: {
                 required: {},
                 unique: {}
               },
-              appeareance: { type: "plain" }
+              appeareance: {
+                editor: "single_line",
+                parameters: {}
+              }
             },
             name: {
               label: "Name",
               field_type: "string",
               hint: "The variant's name",
-              position: 3,
+              position: 2,
               validators: {
                 required: {},
                 unique: {}
               },
-              appeareance: { type: "plain" }
+              appeareance: {
+                editor: "single_line",
+                parameters: {}
+              }
             },
             description: {
               label: "Description",
               field_type: "text",
               hint: "The variant's description",
-              position: 4,
+              position: 3,
               validators: {},
-              appeareance: { type: "plain" }
+              appeareance: {
+                editor: "markdown",
+                parameters: {
+                  "toolbar" => ["heading", "bold", "italic", "strikethrough", "unordered_list", "ordered_list", "quote", "link", "image", "fullscreen"]
+                }
+              }
             },
             image: {
               label: "Image",
               field_type: "file",
               hint: "The variant's image",
-              position: 5,
+              position: 4,
               validators: {},
-              appeareance: {}
+              appeareance: {
+                editor: "file",
+                parameters: {}
+              }
             }
           }
         end
@@ -201,7 +210,6 @@ module Commercelayer
             begin
               variant = client.items.create({
                 item_type: @variant_model[:id],
-                product: last_product_id,
                 code: sku.code,
                 name: sku.name,
                 description: sku.description,
