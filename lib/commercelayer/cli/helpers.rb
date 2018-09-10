@@ -16,6 +16,10 @@ module Commercelayer
           },
           "dato" => {
             "api_key" => "YOUR-DATOCMS-APIKEY"
+          },
+          "contentful" => {
+            "space" => "YOUR-CONTENTFUL-SPACE-ID",
+            "access_token" => "YOUR-CONTENTFUL-ACCESS-TOKEN"
           }
         }.to_yaml
       end
@@ -31,7 +35,7 @@ module Commercelayer
           scope: config_data[:commercelayer][:scope],
           site: config_data[:commercelayer][:site]
         )
-      end      
+      end
 
     end
   end

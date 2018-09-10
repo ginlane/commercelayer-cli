@@ -224,7 +224,7 @@ module Commercelayer
         end
 
         def client
-          Dato::Site::Client.new(config_data[:dato][:api_key])
+          ::Dato::Site::Client.new(config_data[:dato][:api_key])
         end
 
       end

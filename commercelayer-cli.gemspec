@@ -38,5 +38,6 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "thor"
   spec.add_dependency "commercelayer"
-  spec.add_dependency "dato"  
+  spec.add_dependency "dato"
+  spec.add_dependency "contentful-management"
 end

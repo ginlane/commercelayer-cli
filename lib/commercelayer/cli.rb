@@ -1,6 +1,7 @@
 require 'thor'
 require 'commercelayer'
 require 'dato'
+require 'contentful/management'
 
 require "commercelayer/cli/version"
 require "commercelayer/cli/helpers"
