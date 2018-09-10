@@ -1,6 +1,6 @@
 module Commercelayer
   module CLI
-    module Exporters
+    module Bootstrappers
       class DatoCMS
 
         include Helpers
@@ -16,7 +16,7 @@ module Commercelayer
           end
         end
 
-        def export!
+        def bootstrap!
           create_product_model!
           create_variant_model!
           create_product_model_fields!

@@ -4,14 +4,14 @@ require 'dato'
 
 require "commercelayer/cli/version"
 require "commercelayer/cli/helpers"
-require "commercelayer/cli/exporters"
+require "commercelayer/cli/bootstrappers"
 
 module Commercelayer
   module CLI
     class Base < Thor
 
       include Helpers
-      include Exporters
+      include Bootstrappers
       include Thor::Actions
 
       desc "init", "Create a config file under $HOME/.commercelayer-cli.yml"
@@ -21,10 +21,10 @@ module Commercelayer
         end
       end
 
-      desc "export", "Export data from Commerce Layer to a destination"
-      def export
+      desc "bootstrap", "Exports data from Commerce Layer to a destination, clearing existing data"
+      def bootstrap
         destination = ask "What is your destination?", limited_to: ["contentful", "datocms", "csv"]
-        export_data!(destination)
+        bootstrap_data!(destination)
       end
 
     end
