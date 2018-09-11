@@ -76,12 +76,6 @@ module Commercelayer
               required: true,
               validations: [ validation(unique: true) ]
             },
-            image: {
-              name: "Image",
-              type: "Link",
-              link_type: "Asset",
-              validations: [ validation(link_mimetype_group: 'image') ]
-            },
             variants: {
               name: "Variants",
               type: "Array",
@@ -129,7 +123,6 @@ module Commercelayer
                 product = master.entries.find(last_product_id)
                 product.update({
                   reference: last_product_reference,
-                  image: last_product_variants.first.image,
                   variants: last_product_variants
                 })
                 product.publish
