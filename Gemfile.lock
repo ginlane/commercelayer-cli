@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    commercelayer-cli (0.2.2)
+    commercelayer-cli (0.2.4)
       commercelayer
       contentful-management
       dato
@@ -143,4 +143,4 @@ DEPENDENCIES
   rspec (~> 3.0)
 
 BUNDLED WITH
-   1.16.4
+   1.16.5

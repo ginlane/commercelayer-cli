@@ -11,15 +11,14 @@ module Commercelayer
           "commercelayer" => {
             "site" => "https://<subdomain>.commercelayer.io",
             "client_id" => "YOUR-COMMERCELAYER-CLIENT-ID",
-            "client_secret" => "YOUR-COMMERCELAYER-CLIENT-SECRET",
-            "scope" => "market:<market_id>",
-          },
-          "dato" => {
-            "api_key" => "YOUR-DATOCMS-APIKEY"
+            "client_secret" => "YOUR-COMMERCELAYER-CLIENT-SECRET"
           },
           "contentful" => {
             "space" => "YOUR-CONTENTFUL-SPACE-ID",
             "access_token" => "YOUR-CONTENTFUL-ACCESS-TOKEN"
+          },
+          "dato" => {
+            "api_key" => "YOUR-DATOCMS-APIKEY"
           }
         }.to_yaml
       end
@@ -32,7 +31,7 @@ module Commercelayer
         Commercelayer::Client.new(
           client_id: config_data[:commercelayer][:client_id],
           client_secret: config_data[:commercelayer][:client_secret],
-          scope: config_data[:commercelayer][:scope],
+          # scope: config_data[:commercelayer][:scope],
           site: config_data[:commercelayer][:site]
         )
       end
