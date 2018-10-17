@@ -37,6 +37,7 @@ module Commercelayer
 
             begin
               variant = variant_model.entries.create({
+                ID: sku.id,
                 code: sku.code,
                 name: sku.name,
                 description: sku.description,
